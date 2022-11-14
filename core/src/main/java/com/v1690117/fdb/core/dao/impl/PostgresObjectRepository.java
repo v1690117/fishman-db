@@ -23,6 +23,7 @@ import static com.v1690117.fdb.core.util.Helper.tableName;
 
 @RequiredArgsConstructor
 @Repository
+// todo rename to DAO
 public class PostgresObjectRepository implements ObjectRepository {
     public static final int VARCHAR_SIZE = 239;
     private final NamedParameterJdbcOperations jdbc;
