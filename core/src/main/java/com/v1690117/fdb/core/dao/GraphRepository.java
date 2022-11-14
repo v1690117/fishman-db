@@ -1,26 +1,26 @@
 package com.v1690117.fdb.core.dao;
 
+import com.v1690117.fdb.core.model.ExpansionParameters;
 import com.v1690117.fdb.core.model.RelatedNode;
-import com.v1690117.fdb.core.model.SimpleExpansionParameters;
 
 import java.util.List;
 import java.util.Map;
 
 public interface GraphRepository {
 
-    String getType(Long id);
+    String getType(Integer id);
 
     void registerType(String type);
 
-    Long addObject(String type);
+    Integer addObject(String type);
 
-    Long connect(Long from, Long to, String relationship);
+    Integer connect(Integer from, Integer to, String relationship);
 
-    void disconnect(Long id);
+    void disconnect(Integer id);
 
-    List<RelatedNode> expand(Long id);
+    List<RelatedNode> expand(Integer id);
 
-    List<RelatedNode> expand(Long id, SimpleExpansionParameters expansionParams);
+    List<RelatedNode> expand(Integer id, ExpansionParameters expansionParams);
 
-    Map<Long, List<RelatedNode>> readAll(String type);
+    Map<Integer, List<RelatedNode>> readAll(String type);
 }

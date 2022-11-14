@@ -1,21 +1,22 @@
 package com.v1690117.fdb.core.dao;
 
 import com.v1690117.fdb.core.model.ObjectInfo;
+import com.v1690117.fdb.core.model.Selector;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 public interface ObjectRepository {
-    Long count(String type);
+    Map<String, Object> read(Integer id, String type, Selector selector);
 
-    Long addObject(Long id, String type, Map<String, String> attributes);
+    List<Map<String, Object>> readAll(String type, Selector selector);
 
-    Map<String, Object> read(Long id, String type);
+    List<Map<String, Object>> readAll(Collection<ObjectInfo> objects, Selector selector);
 
-    List<Map<String, Object>> readAll(String type);
+    Integer count(String type);
 
-    List<Map<String, Object>> readAll(Collection<ObjectInfo> objects);
+    Integer addObject(Integer id, String type, Map<String, String> attributes);
 
-    List<Map<String, Object>> findByProperty(String type, String propertyName, String propertyValue);
+    List<Map<String, Object>> findByProperty(String type, String propertyName, String propertyValue, Selector selector);
 }
