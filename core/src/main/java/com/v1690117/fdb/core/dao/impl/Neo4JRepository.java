@@ -89,9 +89,9 @@ public class Neo4JRepository implements GraphRepository {
                 var object = r.get("other").asNode();
                 var rel = r.get("rel").asRelationship();
                 return new RelatedNode(
-                        object.id(),
+                        (int) object.id(),
                         object.get("type").asString(),
-                        rel.id(),
+                        (int) rel.id(),
                         rel.get("type").asString(),
                         r.get("other").asNode().id() == r.get("rel").asRelationship().endNodeId(),
                         1
@@ -159,9 +159,9 @@ public class Neo4JRepository implements GraphRepository {
                 var object = r.get("other").asNode();
                 var rel = r.get("rel").asRelationship();
                 var node = new RelatedNode(
-                        object.id(),
+                        (int) object.id(),
                         object.get("type").asString(),
-                        rel.id(),
+                        (int) rel.id(),
                         rel.get("type").asString(),
                         r.get("other").asNode().id() == r.get("rel").asRelationship().endNodeId(),
                         1

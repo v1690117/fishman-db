@@ -61,7 +61,7 @@ public class PostgresObjectRepository implements ObjectRepository {
 
     @Override
     public List<Map<String, Object>> readAll(Collection<ObjectInfo> objects, Selector selector) {
-        var typeToIds = new HashMap<String, List<Long>>();
+        var typeToIds = new HashMap<String, List<Integer>>();
         for (var object : objects) {
             if (!typeToIds.containsKey(object.getType())) {
                 typeToIds.put(object.getType(), new ArrayList<>());
