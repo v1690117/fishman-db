@@ -1,0 +1,18 @@
+language: java
+
+jdk:
+  - openjdk11
+
+stages:
+  - check
+  - compile
+  - test
+
+jobs:
+  include:
+    - name: Checkstyle
+      stage: check
+      if: type == push
+      script:
+        - cd core
+        - mvn checkstyle:check
