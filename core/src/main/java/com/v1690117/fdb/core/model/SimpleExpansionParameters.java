@@ -14,18 +14,18 @@ import java.util.List;
 public class SimpleExpansionParameters implements ExpansionParameters {
     private List<String> relationships;
     private int level;
-    private boolean from;
-    private boolean to;
+    private boolean includeFrom;
+    private boolean includeTo;
 
-    public String getFrom() {
-        return from && to
+    public String getIncludeFrom() {
+        return includeFrom && includeTo
                 ? "-"
-                : from ? "-" : "<-";
+                : includeFrom ? "-" : "<-";
     }
 
-    public String getTo() {
-        return from && to
+    public String getIncludeTo() {
+        return includeFrom && includeTo
                 ? "-"
-                : from ? "->" : "-";
+                : includeFrom ? "->" : "-";
     }
 }

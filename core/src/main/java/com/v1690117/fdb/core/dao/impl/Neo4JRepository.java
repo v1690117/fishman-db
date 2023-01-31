@@ -80,7 +80,7 @@ public class Neo4JRepository implements GraphRepository {
     @Override
     public List<RelatedNode> expand(Integer id) {
         try (var session = driver.session()) {
-            var res = session.run(
+            return session.run(
                     String.format(
                             "MATCH (current) -[rel]- (other)  WHERE ID(current) = %s RETURN other,rel",
                             id
@@ -97,7 +97,6 @@ public class Neo4JRepository implements GraphRepository {
                         1
                 );
             }).collect(Collectors.toList());
-            return res;
         }
     }
 

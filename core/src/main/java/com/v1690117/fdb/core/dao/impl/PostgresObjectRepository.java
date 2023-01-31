@@ -92,11 +92,10 @@ public class PostgresObjectRepository implements ObjectRepository {
             String propertyValue,
             Selector selector
     ) {
-        var res = jdbc.queryForList(
+        return jdbc.queryForList(
                 "select id from " + tableName(type) + "  where " + propertyName + " = '" + propertyValue + "'",
                 Collections.emptyMap()
         );
-        return res;
     }
 
     @Transactional

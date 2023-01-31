@@ -7,7 +7,7 @@ public interface ExpansionParameters {
 
     int level();
 
-    boolean from();
+    boolean includeFrom();
 
-    boolean to();
+    boolean includeTo();
 }
