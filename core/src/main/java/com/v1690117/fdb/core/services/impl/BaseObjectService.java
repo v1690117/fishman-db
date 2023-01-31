@@ -123,12 +123,11 @@ public class BaseObjectService implements ObjectService {
 
     @Override
     public Integer connect(Integer from, Integer to, String relationship) {
-        var connectionId = graphRepository.connect(
+        return graphRepository.connect(
                 from,
                 to,
                 relationship
         );
-        return connectionId;
     }
 
     @Override
