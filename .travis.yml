@@ -16,3 +16,9 @@ jobs:
       script:
         - cd core
         - mvn checkstyle:check
+    - name: PMD
+      stage: check
+      if: type == push
+      script:
+        - cd core
+        - mvn pmd:check
